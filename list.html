@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商品列表</title>
+	<link rel="shortcut icon" href="img/bitbug_favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/public.css"/>
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<link rel="stylesheet" href="css/list.css">
+	<script type="text/javascript" src="js/index.js" ></script>
+	<script type="text/javascript" src="js/cookie.js" ></script>
+	<script type="text/javascript" src="js/ajax.js" ></script>
+	<script type="text/javascript" src="js/jquery1.42.min.js" ></script>
+	<script type="text/javascript" src="js/list.js" ></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js" ></script>
+</head>
+<body>
+	<!--头部-->
+	<div class="header">
+		<div class="header_t">
+			<ul class="hea header_l">
+				<li id="deng">
+					欢迎来访，
+					<a href="login.html">登录</a> | &nbsp;&nbsp;<a href="register.html">注册</a>
+				</li>
+				<li id="zhu">
+					欢迎来访，
+					<i id="is">cs</i> &nbsp;&nbsp; | &nbsp;&nbsp;
+					<input type="button" value="注销" id="btn_zhu">
+				</li>
+				<li id="song">
+					&nbsp;&nbsp;&nbsp;&nbsp;配送至：<a href="#" class="h">&nbsp;&nbsp;上海</a><span></span></li>
+			</ul>
+			<ul class="hea nav">
+				<li class="m on"><a href="#">我的收藏</a></li>
+				<li class="m"><a href="#">我的订单</a></li>
+				<li class="m hea_r">
+					<a href="#">我的账户</a><span></span>
+					<ul class="sub">
+						<li><a href="#">充值特惠</a></li>
+						<li><a href="#">优惠券</a></li>
+						<li><a href="#">我的余额</a></li>
+						<li><a href="#">礼品卡</a></li>
+					</ul>
+				</li>
+				<li class="m hea_r">
+					<i class="icon icon-phone"></i><a href="#">手机甫田</a><span></span>
+					<ul class="sub">
+						<li><a href="#">下载APP</a></li>
+						<li><img src="img/1 (12).png"/></li>
+					</ul>
+				</li>
+				<li class="m hea_r">
+					<a href="#">关注甫田</a><span></span>
+					<ul class="sub">
+						<i class="icon weixin"></i>
+						<i class="icon weibo"></i>
+						<img src="img/1 (26).png"/>
+					</ul>
+				</li>
+				<li class="m hea_r">
+					<a href="#" class="h">EN</a><i class="icon icon-yingguo"></i><span></span>
+					<ul class="sub h">
+						<li><i class="icon icon-zhongguo"></i><a href="#">简体中文</a></li>
+						<li><i class="icon icon-yingguo"></i><a href="#">English</a></li>
+						<li><i class="icon icon-faguo"></i><a href="#">Francais</a></li>
+						<li><i class="icon icon-riben"></i><a href="#">日本语</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--内容-->
+	<div class="content">
+		<!--第一部分-->
+		<div class="con">
+			<div class="con_content">
+				<div class="f1 con_l">
+					<a href="#"><img src="img/1 (68).jpg" class="con_l_img" /></a>
+					<div class="f1 menu_l menu_ls">
+						<a href="#">全部分类</a>
+					</div>
+				</div>
+				<div class="f1 con_cen">
+					<div class="search">
+						<input type="text" name="txt" id="querystr" placeholder="大閘蟹" class="txt" />
+						<ul id="goodslist"></ul>
+						<input type="button" id="btn" class="btn">
+					</div>
+					<ul class="search_hot">
+						热门搜索：
+						<li><a href="#">礼盒</a></li>
+						<li><a href="#">石榴</a></li>
+						<li><a href="#">柚</a></li>
+						<li><a href="#">大米</a></li>
+						<li><a href="#">奶酪</a></li>
+					</ul>
+				</div>
+				<p class="pclass">
+					<a href="#">
+						<img src="img/caomei.png" class="con_l_img">
+					</a>
+				</p>
+				<div class="fr con_r" id="con_r">
+					<a href="s_cart.html">
+						<i class="icon gowu"></i>
+						<span class="go">购物车</span>
+						<span class="num" id="shopping"><b>0</b></span>
+					</a>
+					<div class="shop" id="shop">
+						<p>
+							<i class="icon gowu1"></i>
+							购物车中还没有添加商品！
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--第二部分菜单-->
+		<div class="menu">
+			<div class="f1 menu_l menu_ld" id="menu_l">
+				<a href="#">全部分类</a>
+				<ul class="me mes" id="me">
+					<li class="sec"><a href="#">大厨美食<i class="icon grou"></i></a><div class="menu_con" id="menu_con"></div></li>
+					<li class="sec"><a href="#">美味秋季<i class="icon grou"></i></a><div class="menu_con" id="menu_con"></div></li>
+					<li class="sec"><a href="#">田园时蔬<i class="icon grou"></i></a><div class="menu_con" id="menu_con"></div></li>
+					<li class="sec"><a href="#">精选肉类<i class="icon grou"></i></a><div class="menu_con" id="menu_con"></div></li>
+					<li class="sec"><a href="#">新鲜水果<i class="icon grou"></i></a><div class="menu_con" id="menu_con"></div></li>
+					<li><a href="#">海鲜水产<i class="icon grou"></i></a></li>
+					<li><a href="#">蛋奶乳品<i class="icon grou"></i></a></li>
+					<li><a href="#">面包烘焙<i class="icon grou"></i></a></li>
+					<li><a href="#">快手熟食<i class="icon grou"></i></a></li>
+					<li><a href="#">粮油杂货<i class="icon grou"></i></a></li>
+					<li><a href="#">饮料酒水<i class="icon grou"></i></a></li>
+					<li><a href="#">轻食生活<i class="icon grou"></i></a></li>
+					<li><a href="#">个人护理&母婴<i class="icon grou"></i></a></li>
+				</ul>
+			</div>
+			<div class="f1 menu_r">
+				<ul>
+					<li><a href="#">买一得二</a><img src="img/1 (14).png"/></li>
+					<li><a href="#">24小时鲜</a><img src="img/1 (20).png"</li>
+					<li><a href="#">本周特惠</a></li>
+					<li><a href="#">热卖新品</a></li>
+					<li><a href="#">临期特惠</a></li>
+					<li><a href="#">VIP商城</a></li>
+					<li><a href="#">感恩节盛宴</a><img src="img/1 (14).png"/></li>
+					<li><a href="#">礼品和预售卡</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="list_con">
+			<div class="list_con_top">
+				<a href="index.html">首页 &gt; </a><a href="#">大厨美食 &gt; </a><a href="#">主食</a>
+			</div>
+			<div class="list_container_content">
+				<div class="list_container_left">
+					<ul>
+						<h3>大厨美食</h3>
+						<li><a href="#">主食</a><i class="icon icon_green"></i></li>
+						<li><a href="#">菜品</a><i class="icon icon_green"></i></li>
+						<li><a href="#">汤</a><i class="icon icon_green"></i></li>
+						<li><a href="#">甜品</a><i class="icon icon_green"></i></li>
+						<li><a href="#">配菜</a><i class="icon icon_green"></i></li>
+						<li><a href="#">蘸酱/香料</a><i class="icon icon_green"></i></li>
+						<li><a href="#">大厨力荐</a><i class="icon icon_green"></i></li>
+					</ul>
+					<div class="list_container_cen">
+						<h2>猜你喜欢</h2>
+						<div class="list_container">
+							<a href="#"><img src="img/s2.jpg" alt=""></a>
+							<h3><a href="#">拓食 生冻黑虎虾</a></h3>
+							<p>个大味美 新鲜健康</p>
+							<div class="food">
+								<p class="weight">400克</p>
+								<span>越南</span>
+								<p class="price">￥79</p>
+								<i class="icon gou"></i>
+							</div>
+						</div>
+						<div class="list_container">
+							<a href="#"><img src="img/s3.jpg" alt=""></a>
+							<h3><a href="#">拓食 黄皮小土豆</a></h3>
+							<p>肉质细密 味道纯正</p>
+							<div class="food">
+								<p class="weight">400克</p>
+								<span>上海</span>
+								<p class="price">￥7</p>
+								<i class="icon gou"></i>
+							</div>
+						</div>
+						<div class="list_container">
+							<a href="#"><img src="img/s4.jpg" alt=""></a>
+							<h3><a href="#">拓食 都乐菲律宾香蕉</a></h3>
+							<p>软糯香甜</p>
+							<div class="food">
+								<p class="weight">4-7根（1千克）</p>
+								<span>菲律宾</span>
+								<p class="price">￥15</p>
+								<i class="icon gou"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="list_container_right">
+					<div class="container_right_title">
+						<div class="container_right_title_l">
+							<h3>产地：</h3><a href="#">全部</a><a href="#">中国</a>
+						</div>
+					</div>
+					<ul class="list_container_ul">
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!--底部-->
+	<div class="footer">
+		<div class="foot_top">
+			<div class="foot">
+				<img src="img/1 (13).png"/>
+			</div>
+		</div>
+		<div class="footer_cen">
+			<div class="foot_cen">
+				<div class="cen_l f1">
+					<img src="img/1 (18).png"/>
+					<p>
+						<span><b>Hotline</b> 400-820-7708</span>
+						<span>08:00 ~ 20:00</span>
+					</p>
+				</div>
+				<ul class="cen_c f1">
+					<li>
+						<h3>新手入门</h3>
+						<ul>
+							<li><a href="#">关于我们</a></li>
+							<li><a href="#">常见问题</a></li>
+							<li><a href="#">联系我们</a></li>
+							<li><a href="#">加入我们</a></li>
+						</ul>
+					</li>
+					<li>
+						<h3>企业服务</h3>
+						<ul>
+							<li><a href="#">礼品卡</a></li>
+							<li><a href="#">积分制度</a></li>
+							<li><a href="#">会员制度</a></li>
+						</ul>
+					</li>
+					<li>
+						<h3>售后服务</h3>
+						<ul>
+							<li><a href="#">服务承诺</a></li>
+							<li><a href="#">退货条款</a></li>
+							<li><a href="#">配送范围及时间</a></li>
+							<li><a href="#">电子发票</a></li>
+						</ul>
+					</li>
+					<li>
+						<h3>支付方式</h3>
+						<ul>
+							<li><a href="#">货到付款</a></li>
+							<li><a href="#">在线支付</a></li>
+							<li><a href="#">优惠券使用</a></li>
+						</ul>
+					</li>
+				</ul>
+				<div class="cen_r fr">
+					<div class="cen_r_right cen_ls">
+						<img src="img/1 (26).png"/><span>下载app</span>
+					</div>
+					<div class="cen_r_right">
+						<img src="img/1 (26).png"/><span>关注微信</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="foot_bottom">
+			<div class="foot_bottom_con">
+				<p>
+					<a href="#"><img src="img/1 (1).gif"/></a>© 2009-2018 FIELDS CHINA. All Rights Reserved 沪ICP备10215492号-3
+				</p>
+			</div>
+		</div>
+		<div class="foot_ce">
+			<div class="m_co m_code1">
+				<img src="img/1 (22).png"/>
+			</div>
+			<div class="m_co m_code2">
+				<img src="img/serve.png"/>
+			</div>
+			<div class="m_co m_code3">
+				<img src="img/email.png"/>
+			</div>
+			<div class="m_co m_code4" id="returnTop">
+				<img src="img/top.png"/>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

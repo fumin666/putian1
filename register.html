@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>注册页面</title>
+		<link rel="shortcut icon" href="img/bitbug_favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+		<link rel="stylesheet" href="css/register.css" />
+		<script type="text/javascript" src="js/cookie.js"></script>
+		<script type="text/javascript" src="js/ajax.js"></script>
+		<script type="text/javascript" src="js/ajax1.js"></script>
+		<script type="text/javascript" src="js/jquery1.42.min.js" ></script>
+		<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js" ></script>
+	</head>
+	<body>
+		<!--头部-->
+		<div class="header">
+			<div class="header_t">
+				<ul class="hea header_l">
+					<li id="deng">
+						欢迎来访，
+						<a href="login.html">登录</a> | &nbsp;&nbsp;<a href="register.html">注册</a>
+					</li>
+					<li id="zhu">
+						欢迎来访，
+						<i id="is">cs</i>  | &nbsp;&nbsp;
+						<input type="button" value="注销">
+					</li>
+					<li id="song">
+						&nbsp;&nbsp;&nbsp;&nbsp;配送至：<a href="#" class="h">&nbsp;&nbsp;上海</a><span></span></li>
+				</ul>
+				<ul class="hea nav">
+					<li class="m on"><a href="#">我的收藏</a></li>
+					<li class="m"><a href="#">我的订单</a></li>
+					<li class="m hea_r">
+						<a href="#">我的账户</a><span></span>
+						<ul class="sub">
+							<li><a href="#">充值特惠</a></li>
+							<li><a href="#">优惠券</a></li>
+							<li><a href="#">我的余额</a></li>
+							<li><a href="#">礼品卡</a></li>
+						</ul>
+					</li>
+					<li class="m hea_r">
+						<i class="icon icon-phone"></i><a href="#">手机甫田</a><span></span>
+						<ul class="sub">
+							<li><a href="#">下载APP</a></li>
+							<li><img src="img/1 (12).png"/></li>
+						</ul>
+					</li>
+					<li class="m hea_r">
+						<a href="#">关注甫田</a><span></span>
+						<ul class="sub">
+							<i class="icon weixin"></i>
+							<i class="icon weibo"></i>
+							<img src="img/1 (26).png"/>
+						</ul>
+					</li>
+					<li class="m hea_r">
+						<a href="#" class="h">EN</a><i class="icon icon-yingguo"></i><span></span>
+						<ul class="sub h">
+							<li><i class="icon icon-zhongguo"></i><a href="#">简体中文</a></li>
+							<li><i class="icon icon-yingguo"></i><a href="#">English</a></li>
+							<li><i class="icon icon-faguo"></i><a href="#">Francais</a></li>
+							<li><i class="icon icon-riben"></i><a href="#">日本语</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="artical">
+			<div class="arti_cen">
+				<div class="art">
+					<a href="#"><img src="img/1 (18).png"/></a>
+				</div>
+			</div>
+		</div>
+		<!--container-->
+		<div class="container">
+			<div class="container_l">
+				<div class="container_t">
+					<h1>FIELDS新会员注册</h1>
+					<span>
+						<a href="login.html">已有账号？登录</a>
+					</span>
+				</div>
+				<div class="container_c">
+					<div class="con_top">
+						<a href="#"><img src="img/cn_pc_register.png"/></a>
+						<div class="cont_right">
+							<input type="text" id="username" placeholder="用户名" class="msd"/>
+							<span id="usernameMessage"></span>
+							<input type="password" id="password" placeholder="密码" class="msd"/>
+							<input type="password" id="password1" placeholder="确认密码" class="msd"/>
+							<span id="passMessage"></span>
+							<p class="list">
+								<input id="check" type="checkbox" name="check" checked />
+								<label class="auto" for="check">我已经阅读并同意</label>		
+								<a href="#">《甫田网服务条款》</a>
+							</p>
+							<input type="button" value="注册" class="submit" id="btn" />
+						</div>
+					</div>
+					<div class="con_bottom">
+						<p class="con_foot">© 2009-2018 FIELDS CHINA. All Rights Reserved 沪ICP备10215492号-3</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
+<script type="text/javascript">
+	function $(str){
+		if(str.charAt(0)=="#"){
+			return document.getElementById(str.substring(1));
+		}else if(str.charAt(0)=="."){
+			return document.getElementsByClassName(str.substring(1));
+		}else{
+			return document.getElementsByTagName(str);
+		}
+	}
+	window.onload = function(){
+		$("#username").onblur = function(){
+			ajax("get","./php/userCheck02.php","username="+this.value,true);
+		}
+		$("#password1").onkeyup = function(){
+			if($("#password").value == $("#password1").value){
+				$("#passMessage").innerHTML = "密码一致,可以注册";
+				$("#passMessage").style.display = "block";
+				$("#passMessage").style.color = "green";
+			}else{
+				$("#passMessage").innerHTML = "密码不一致，请重新输入";
+				$("#passMessage").style.display = "block";
+				$("#passMessage").style.color = "red";
+			}
+		}
+		$("#btn").onclick = function(){
+			ajax1("post","./php/register.php","username="+$("#username").value+"&password="+$("#password").value,true);
+			if($("#username").value=="" || $("#password").value=="" || $("#password1").value==""){
+				alert("用户名或密码不能为空");
+				location.href = "register.html";
+			}
+		}
+	}
+</script>

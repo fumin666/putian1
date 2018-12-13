@@ -1,0 +1,31 @@
+.con_top a{
+	display: inline-block;
+	min-height: 460px;
+	width: 50%;
+	position: relative;
+}
+.con_top a img{
+	width: 100%;
+	position: absolute;
+}
+.con_top .cont_right{
+	padding: 0 0 0 20px;
+	border: none;
+}
+.cont_right .msd{
+	border: 1px solid #e2e6e4;
+}
+#passMessage{
+	display: none;
+}
+.list{margin-bottom: 30px;}
+.list input{
+	width: 17px;
+	height: 17px;
+	vertical-align: middle;
+	margin-right: 6px;
+}
+.con_top .cont_right a{
+	display: inline;
+	color: #005aa0;
+}
